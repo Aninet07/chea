@@ -1,0 +1,42 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+import pandas as pd
+
+
+iris = load_iris()
+iris_df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+iris_df['target'] = iris.target
+iris_df['species'] = iris.target_names[iris.target]
+
+
+sns.set(style="whitegrid")
+
+
+sns.scatterplot(x='sepal length (cm)', y='sepal width (cm)', hue='species', data=iris_df, palette='viridis', marker='o')
+plt.title('Scatter Plot: Sepal Length vs Sepal Width')
+plt.show()
+
+
+sns.scatterplot(x='petal length (cm)', y='petal width (cm)', hue='species', data=iris_df, palette='viridis', marker='o')
+plt.title('Scatter Plot: Petal Length vs Petal Width')
+plt.show()
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+import pandas as pd
+
+
+data = {
+    'name': ['John', 'Alice', 'Bob', 'Emma', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry'],
+    'age': [25, 28, 22, 30, 26, 35, 32, 27, 29, 31],
+    'salary': [60000, 75000, 50000, 80000, 65000, 90000, 82000, 72000, 78000, 85000],
+    'department': ['IT', 'HR', 'Finance', 'IT', 'Marketing', 'IT', 'Finance', 'HR', 'Marketing', 'IT']
+}
+
+
+df = pd.DataFrame(data)
+
+print("Initial DataFrame:")
+print(df)
