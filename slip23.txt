@@ -1,0 +1,110 @@
+<?php
+
+class Stack
+{
+    private $stack = array();
+
+    public function push($element)
+    {
+        array_push($this->stack, $element);
+        echo "Element $element pushed onto the stack.\n";
+    }
+
+    public function pop()
+    {
+        if (!$this->isEmpty()) {
+            $poppedElement = array_pop($this->stack);
+            echo "Element $poppedElement popped from the stack.\n";
+        } else {
+            echo "Stack is empty. Cannot pop.\n";
+        }
+    }
+
+    public function display()
+    {
+        if (!$this->isEmpty()) {
+            echo "Stack Contents:\n";
+            foreach (array_reverse($this->stack) as $element) {
+                echo $element . "\n";
+            }
+        } else {
+            echo "Stack is empty.\n";
+        }
+    }
+
+    private function isEmpty()
+    {
+        return empty($this->stack);
+    }
+}
+
+function main()
+{
+    $stack = new Stack();
+
+    while (true) {
+        echo "\nStack Operations:\n";
+        echo "1. Push\n";
+        echo "2. Pop\n";
+        echo "3. Display\n";
+        echo "4. Quit\n";
+
+        $choice = readline("Enter your choice (1/2/3/4): ");
+
+        switch ($choice) {
+            case '1':
+                $element = readline("Enter the element to push onto the stack: ");
+                $stack->push($element);
+                break;
+            case '2':
+                $stack->pop();
+                break;
+            case '3':
+                $stack->display();
+                break;
+            case '4':
+                echo "Exiting the program.\n";
+                exit;
+            default:
+                echo "Invalid choice. Please enter a valid option.\n";
+        }
+    }
+}
+
+main();
+
+?>
+---------------------------------------------------------------------------------------------------------------------
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Binarizer
+
+# Load the wine quality data from the CSV file
+wine_data = pd.read_csv('winequality-red.csv')
+
+# Display the original dataset
+print("Original Dataset:")
+print(wine_data.head())
+
+# a. Rescaling using MinMaxScaler
+minmax_scaler = MinMaxScaler()
+rescaled_data = minmax_scaler.fit_transform(wine_data)
+rescaled_df = pd.DataFrame(rescaled_data, columns=wine_data.columns)
+
+print("\nRescaled Dataset:")
+print(rescaled_df.head())
+
+# b. Standardizing Data using StandardScaler
+standard_scaler = StandardScaler()
+standardized_data = standard_scaler.fit_transform(wine_data)
+standardized_df = pd.DataFrame(standardized_data, columns=wine_data.columns)
+
+print("\nStandardized Dataset:")
+print(standardized_df.head())
+
+# c. Binarizing Data using Binarizer
+binarizer = Binarizer(threshold=0.5)
+binarized_data = binarizer.fit_transform(wine_data)
+binarized_df = pd.DataFrame(binarized_data, columns=wine_data.columns)
+
+print("\nBinarized Dataset:")
+print(binarized_df.head())

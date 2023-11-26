@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Bootstrap Example</title>
+</head>
+<body>
+
+<!-- Container -->
+<div class="container">
+    <!-- Row -->
+    <div class="row">
+        <!-- Column 1 -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Column 1</h5>
+                    <p class="card-text">Content for column 1 goes here.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Column 2</h5>
+                    <p class="card-text">Content for column 2 goes here.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Column 3</h5>
+                    <p class="card-text">Content for column 3 goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+-----------------------------------------------------------------------------------------------------------------
+import numpy as np
+
+# Your flattened array
+flattened_array = np.array([1, 2, 3, 4, 5, 6])
+
+# Reshape the array (if needed)
+# For example, reshaping to a 2x3 array
+reshaped_array = flattened_array.reshape((2, 3))
+
+# Define the weights
+weights = np.array([0.1, 0.2, 0.3])
+
+# Compute the weighted average along axis 1
+weighted_average = np.average(reshaped_array, axis=1, weights=weights)
+
+# Print the results
+print("Original Array:")
+print(reshaped_array)
+print("Weighted Average along Axis 1:")
+print(weighted_average)
+---------------------------------------------------------------------------------------------------------------------
+import pandas as pd
+
+# Load the advertising data from the CSV file
+advertising_data = pd.read_csv('advertising.csv')
+
+# Display basic statistical details
+basic_stats = advertising_data.describe()
+print(basic_stats)

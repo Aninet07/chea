@@ -1,3 +1,35 @@
+<?php
+
+$associativeArray = array(
+    "Sagar" => "31",
+    "Vicky" => "41",
+    "Leena" => "39",
+    "Ramesh" => "40"
+);
+
+// a) Ascending order sort by Value
+asort($associativeArray);
+echo "a) Ascending order sort by Value:\n";
+print_r($associativeArray);
+
+// b) Ascending order sort by Key
+ksort($associativeArray);
+echo "\nb) Ascending order sort by Key:\n";
+print_r($associativeArray);
+
+// c) Descending order sorting by Value
+arsort($associativeArray);
+echo "\nc) Descending order sorting by Value:\n";
+print_r($associativeArray);
+
+// d) Descending order sorting by Key
+krsort($associativeArray);
+echo "\nd) Descending order sorting by Key:\n";
+print_r($associativeArray);
+
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris

@@ -1,0 +1,65 @@
+slip8:
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+
+wine_data = pd.read_csv('winequality-red.csv')
+
+features = wine_data.drop('quality', axis=1)
+
+scaler = StandardScaler()
+
+standardized_data = scaler.fit_transform(features)
+
+standardized_df = pd.DataFrame(standardized_data, columns=features.columns)
+
+print("Original Data:")
+print(features.head())
+print("\nStandardized Data:")
+print(standardized_df.head())
+
+---------------------------------------------------------------------------------
+slip8_php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations</title>
+</head>
+<body>
+    <h2>String Operations</h2>
+    <form action="process_strings.php" method="post">
+        <label for="largeString">Enter Large String:</label>
+        <input type="text" name="largeString" required><br>
+
+        <label for="smallString">Enter Small String:</label>
+        <input type="text" name="smallString" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the input values from the form
+    $largeString = $_POST["largeString"];
+    $smallString = $_POST["smallString"];
+
+    // a. Find whether the small string appears at the start of the large string
+    $startsWith = (strpos($largeString, $smallString) === 0);
+
+    // b. Find the position of the small string in the big string
+    $position = strpos($largeString, $smallString);
+
+    // c. Compare both strings for the first n characters (case-insensitive)
+    $n = 5; // You can adjust this value as needed
+    $comparison = strncasecmp($largeString, $smallString, $n);
+
+    // Display the results
+    echo "<h2>Results:</h2>";
+    echo "<p>a. Small string appears at the start of the large string: " . ($startsWith ? 'Yes' : 'No') . "</p>";
+    echo "<p>b. Position of the small string in the large string: $position</p>";
+    echo "<p>c. Comparison of the first $n characters (case-insensitive): $comparison</p>";
+}
+?>

@@ -1,0 +1,109 @@
+<?php
+
+class Queue
+{
+    private $queue = array();
+
+    public function enqueue($element)
+    {
+        array_push($this->queue, $element);
+        echo "Element $element enqueued to the queue.\n";
+    }
+
+    public function dequeue()
+    {
+        if (!$this->isEmpty()) {
+            $removedElement = array_shift($this->queue);
+            echo "Element $removedElement dequeued from the queue.\n";
+        } else {
+            echo "Queue is empty. Cannot dequeue.\n";
+        }
+    }
+
+    public function display()
+    {
+        if (!$this->isEmpty()) {
+            echo "Queue Contents:\n";
+            echo implode(', ', $this->queue) . "\n";
+        } else {
+            echo "Queue is empty.\n";
+        }
+    }
+
+    private function isEmpty()
+    {
+        return empty($this->queue);
+    }
+}
+
+function main()
+{
+    $queue = new Queue();
+
+    while (true) {
+        echo "\nQueue Operations:\n";
+        echo "1. Enqueue\n";
+        echo "2. Dequeue\n";
+        echo "3. Display\n";
+        echo "4. Quit\n";
+
+        $choice = readline("Enter your choice (1/2/3/4): ");
+
+        switch ($choice) {
+            case '1':
+                $element = readline("Enter the element to enqueue: ");
+                $queue->enqueue($element);
+                break;
+            case '2':
+                $queue->dequeue();
+                break;
+            case '3':
+                $queue->display();
+                break;
+            case '4':
+                echo "Exiting the program.\n";
+                exit;
+            default:
+                echo "Invalid choice. Please enter a valid option.\n";
+        }
+    }
+}
+
+main();
+
+?>
+
+--------------------------------------------------------------------------------------------------
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
+
+# Load the wine quality data from the CSV file
+wine_data = pd.read_csv('winequality-red.csv')
+
+# Display the original dataset
+print("Original Dataset:")
+print(wine_data.head())
+
+# a. Rescaling using MinMaxScaler
+minmax_scaler = MinMaxScaler()
+rescaled_data = minmax_scaler.fit_transform(wine_data)
+rescaled_df = pd.DataFrame(rescaled_data, columns=wine_data.columns)
+
+print("\nRescaled Dataset:")
+print(rescaled_df.head())
+
+# b. Standardizing Data using StandardScaler
+standard_scaler = StandardScaler()
+standardized_data = standard_scaler.fit_transform(wine_data)
+standardized_df = pd.DataFrame(standardized_data, columns=wine_data.columns)
+
+print("\nStandardized Dataset:")
+print(standardized_df.head())
+
+# c. Normalizing Data using Normalizer
+normalizer = Normalizer()
+normalized_data = normalizer.fit_transform(wine_data)
+normalized_df = pd.DataFrame(normalized_data, columns=wine_data.columns)
+
+print("\nNormalized Dataset:")
+print(normalized_df.head())

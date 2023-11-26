@@ -1,0 +1,109 @@
+slip8:
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+
+wine_data = pd.read_csv('winequality-red.csv')
+
+features = wine_data.drop('quality', axis=1)
+
+scaler = StandardScaler()
+
+standardized_data = scaler.fit_transform(features)
+
+standardized_df = pd.DataFrame(standardized_data, columns=features.columns)
+
+print("Original Data:")
+print(features.head())
+print("\nStandardized Data:")
+print(standardized_df.head())
+
+---------------------------------------------------------------------------------
+slip8_php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations</title>
+</head>
+<body>
+    <h2>String Operations</h2>
+    <form action="process_strings.php" method="post">
+        <label for="largeString">Enter Large String:</label>
+        <input type="text" name="largeString" required><br>
+
+        <label for="smallString">Enter Small String:</label>
+        <input type="text" name="smallString" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the input values from the form
+    $largeString = $_POST["largeString"];
+    $smallString = $_POST["smallString"];
+
+    // a. Find whether the small string appears at the start of the large string
+    $startsWith = (strpos($largeString, $smallString) === 0);
+
+    // b. Find the position of the small string in the big string
+    $position = strpos($largeString, $smallString);
+
+    // c. Compare both strings for the first n characters (case-insensitive)
+    $n = 5; // You can adjust this value as needed
+    $comparison = strncasecmp($largeString, $smallString, $n);
+
+    // Display the results
+    echo "<h2>Results:</h2>";
+    echo "<p>a. Small string appears at the start of the large string: " . ($startsWith ? 'Yes' : 'No') . "</p>";
+    echo "<p>b. Position of the small string in the large string: $position</p>";
+    echo "<p>c. Comparison of the first $n characters (case-insensitive): $comparison</p>";
+}
+?>
+--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+slip10:
+def manhattan_distance(point1, point2):
+    return abs(point2[0] - point1[0]) + abs(point2[1] - point1[1])
+
+def sum_of_manhattan_distances(points):
+    total_distance = 0
+    n = len(points)
+
+    for i in range(n):
+        for j in range(i + 1, n):  # Avoid counting distances twice (i to j and j to i)
+            total_distance += manhattan_distance(points[i], points[j])
+
+    return total_distance
+
+# Example: Points as (x, y) coordinates
+points = [(1, 2), (3, 5), (7, 8), (9, 4)]
+
+result = sum_of_manhattan_distances(points)
+print(f"Sum of Manhattan distances between all pairs of points: {result}")
+
+------------------------------------------------------------------------------
+slip10:
+import pandas as pd
+
+# Load the SOCRHeightWeight dataset
+# You need to adjust the file path or URL based on the location of your dataset
+data_url = "https://wiki.stat.ucla.edu/socr/uploads/1/10/SOCR_Data_Dinov_020108_HeightsWeights.html"
+socr_data = pd.read_html(data_url, header=0)[0]
+
+# Display the dataset (optional)
+print("SOCRHeightWeight dataset:")
+print(socr_data.head())
+
+# Calculate and display column-wise mean
+mean_values = socr_data.mean()
+print("\nColumn-wise Mean:")
+print(mean_values)
+
+# Calculate and display column-wise median
+median_values = socr_data.median()
+print("\nColumn-wise Median:")
+print(median_values)
