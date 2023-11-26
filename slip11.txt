@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Bootstrap Button Styles</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Bootstrap Button Styles</h2>
+
+  
+    <button type="button" class="btn btn-secondary mr-2">Secondary</button>
+
+    
+    <button type="button" class="btn btn-primary mr-2">Primary</button>
+
+    <!-- Success Button -->
+    <button type="button" class="btn btn-success mr-2">Success</button>
+
+    <!-- Error/Danger Button -->
+    <button type="button" class="btn btn-danger mr-2">Error</button>
+
+    <!-- Info Button -->
+    <button type="button" class="btn btn-info mr-2">Info</button>
+
+    <!-- Warning Button -->
+    <button type="button" class="btn btn-warning mr-2">Warning</button>
+
+    <!-- Danger Button -->
+    <button type="button" class="btn btn-danger mr-2">Danger</button>
+</div>
+
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------------------
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the Iris data from the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Count the frequency of each species
+species_counts = iris_data['species'].value_counts()
+
+# Plotting a Pie plot
+plt.figure(figsize=(8, 8))
+plt.pie(species_counts, labels=species_counts.index, autopct='%1.1f%%', startangle=90, colors=['#FF9999', '#66B2FF', '#99FF99'])
+plt.title('Species Distribution in Iris Data')
+plt.show()
+
+----------------------------------------------------------------------------------------------------------------------
+
+import pandas as pd
+
+# Load the wine data from the CSV file
+wine_data = pd.read_csv('winequality-red.csv')
+
+# Display basic statistical details
+basic_stats = wine_data.describe()
+print(basic_stats)
+
