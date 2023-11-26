@@ -112,7 +112,7 @@ Slip5:
 <html lang="en"> 
 <head> 
  <title>NR Class</title> 
- <link rel="stylesheet" href="bootstrap.min.css"> 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
  </head> 
 <body> 
  <div class="jumbotron"> 
@@ -141,8 +141,7 @@ Slip 6:
 
 <html> 
 <head> 
-<link rel="stylesheet" href="bootstrap.min.css"> 
-<title>NRC</title> 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"><title>NRC</title> 
 </head> 
 <body> 
 <div class="row "> 
@@ -355,8 +354,7 @@ echo"Factorial of $n2 is $result.";
 Slip11:
 <html> 
 <head> 
-<link rel=stylesheet href="bootstrap.min.css"> 
-</head> 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></head> 
 <body> 
 <form > 
 <input type= button value="primary" class="btn btn-primary"> 
@@ -468,8 +466,7 @@ echo"</table>" ;
 Slip14:  
 <html> 
 <head> 
-<link rel="stylesheet" href="bootstrap.min.css"> 
-</head> 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></head> 
 <body> 
 <div class=container> 
  <div class="row bg-light" > 
@@ -839,7 +836,7 @@ HTML FILE
 </body> 
 </html> 
 PHP FILE (create 2 text file pf your choice name and use same) 
-<?php 
+<?php   
 $fname1=$_GET['fname1']; 
 $fname2=$_GET['fname2']; 
 $fp1=fopen($fname1,"r"); 
